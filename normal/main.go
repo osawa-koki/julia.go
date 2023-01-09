@@ -10,6 +10,7 @@ import (
 
 const (
 	xmin, ymin, xmax, ymax = -2, -2, +2, +2
+	cx, cy                 = -0.8, 0.156
 	width, height          = 1024, 1024
 	iterations             = 200
 	contrast               = 15
@@ -32,7 +33,7 @@ func main() {
 }
 
 func julia(z complex128) color.Color {
-	var v complex128 = complex(-0.8, 0.156)
+	var v complex128 = complex(cx, cy)
 	for n := uint8(0); n < iterations; n++ {
 		z = z*z + v
 		if cmplx.Abs(z) > 2 {
